@@ -1,4 +1,4 @@
-##Design Galleries and Design as Exploration
+## Design Galleries and Design as Exploration
 
 While reading both Design Galleries and Design as Exploration papers, I really enjoyed learning about their projects interface technique. When giving a user a lot of options within a project, it can become difficult to display this information by having to many options. This could become either too confusing or the interface could become too cluttered. The Design Galleries paper used an alternative approach through a 2D layout. Although the 2D layout might lose information initially, it still allows the users to understand the type of output being presented in this space. I thought this was interesting because so often with our works we want to show the user all the information being presented, but at a certain point we have to know when we are crossing the line of presenting too much information. The Design Galleries arrangement is able to show just enough information that the user can intuitively figure out the missing pieces. 
 
