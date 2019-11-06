@@ -2,7 +2,7 @@
 
 Lego kits are not creative and static and once done building your harry potter mansion kids don’t normally think how to improve upon it or create something else from that same kit. This kit is simple like lego blocks, but has a wide range of options that allows for possibly very complex projects. I believe this would allow children to start with the simple options of this kit, but eventually the children would want to do more and the environment of this tool allows them to continue to expand and learn more complex options.
 
-## LearnableProgramming
+## Learnable Programming
 
 Learnable programming definitely would teach programmers in a brand new way where I believewould be less scary for people to try programming. I could imagine learning a for loop or if statements in this context would help better understand the reality of how the program is running. Showing the dots representing each line and time it’s called is informative, but also I could be distracting if not wanting to use a tool in a learning environment. I think if you have an exact purpose of what you want to create then this tool is very helpful, but if you want to explore as your creating then maybe you would lose unexpected results happening. I think it’s always exciting in a sense when you write a line of code and run it and think it’s going to be visualized in a certain way, but actually it wasn’t that way at all. I think maybe this could have a similar effect just depending how you adjust your sliders, but I am not sure.
 
