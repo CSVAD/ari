@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="/Applications/Processing.app/Contents/Java/core/library/core.jar"/>
+	<classpathentry kind="lib" path="/Users/Ari/Documents/Processing/libraries/sound/library/sound.jar"/>
+	<classpathentry kind="lib" path="processing-library-template-3.0.2/lib/javamp3-1.0.3.jar"/>
+	<classpathentry kind="lib" path="processing-library-template-3.0.2/lib/jsyn-20171016.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
