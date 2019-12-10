@@ -1,4 +1,4 @@
-package template.library;
+package wave.library;
 
 
 import processing.core.*;
@@ -21,23 +21,17 @@ public class Wave {
 	
 	// myParent is a reference to the parent sketch
 	PApplet myParent;
-	float amplitude;
-	float period;
-	int spacing = 10;
-	int width;
+	SinOsc sine;
+	String type = "";
+	PVector location = new PVector(0,0); 
+	float[] yvalues;
+	float amplitude, period, dx;
 	float theta = (float) 0.0;
 	float rotation = (float) 0.0;
-	PVector location = new PVector(0,0); 
-	float dx;
-	float[] yvalues;
-	int r;
-	int g;
-	int b;
+	int resolution = 10;
+	int width, r, g, b;
 	int stroke_weight = 10;
-	String type = "";
-	public SinOsc sine;
 	boolean sound = false;
-	int count = 0;
 	
 	
 	public final static String VERSION = "1.0.0";
@@ -56,15 +50,15 @@ public class Wave {
 		sine = new SinOsc(theParent);
 	}
 	
-	public void setUpWave(float _amplitude, float _period, int _width) {
+	public void setWave(float _amplitude, float _period, int _width) {
 		amplitude = _amplitude;
 		period = _period;
 		width = _width;
 	}
 	
-	public void drawWaves() {
-			yvalues = new float[width/spacing];
-			dx = (myParent.TWO_PI / period) * spacing;
+	public void drawWave() {
+			yvalues = new float[width/resolution];
+			dx = (myParent.TWO_PI / period) * resolution;
 			theta += 0.02;
 			
 			float x = theta;
@@ -75,40 +69,51 @@ public class Wave {
 			renderWave();
 	}
 	
-	public void renderWave() {
-//	    myParent.noStroke();
-//	    myParent.fill(0, 20);
-//	    myParent.rect(0, 0, myParent.width, myParent.height);
-	    myParent.pushMatrix();
+	private void renderWave() {
 	    PShape shape;
 	    myParent.noFill();
 	    shape = myParent.createShape();
 	    if(type.equals("")) {
 	    	shape.beginShape();
 	    }
+	  //POINTS, LINES, TRIANGLES, TRIANGLE_STRIP, QUADS, and QUAD_STRIP.
 	    else if(type.equals("points")) {
 	    	shape.beginShape(shape.POINTS);
 	    }
+	    else if(type.equals("lines")) {
+	    	shape.beginShape(shape.LINES);
+	    }
+	    else if(type.equals("triangles")) {
+	    	shape.beginShape(shape.TRIANGLES);
+	    }
+	    else if(type.equals("triangle_strip")) {
+	    	shape.beginShape(shape.TRIANGLE_STRIP);
+	    }
+	    else if(type.equals("quads")) {
+	    	shape.beginShape(shape.QUADS);
+	    }
+	    else if(type.equals("quad_strip")) {
+	    	shape.beginShape(shape.QUAD_STRIP);
+	    }
+	    shape.rotate(myParent.radians(rotation));
 	    shape.translate(location.x, location.y);
-	    shape.rotate(myParent.degrees(rotation));
 	    shape.strokeWeight(stroke_weight);
 	    shape.stroke(myParent.color(r,g,b));
 	    for (int x = 0; x < yvalues.length; x++) {
-//	    	shape.stroke(myParent.map(x*spacing, 0,  yvalues[x], 255, 0));
-	      
-	    	shape.vertex(x*spacing, yvalues[x]);
+	    	shape.vertex(x*resolution, yvalues[x]);
 	    	if(sound) {
 	    		sine.amp(yvalues[x]/amplitude);
-	            sine.freq(x*spacing);
+	            sine.freq(x*resolution);
 	    	}
 	    }
+	    myParent.pushMatrix();
 	    shape.endShape();
 	    myParent.shape(shape);
 	    myParent.popMatrix();
 	}
 	
-	public void spacing(int _spacing) {
-		spacing = _spacing;
+	public void resolution(int _resolution) {
+		resolution = _resolution;
 	}
 	
 	public void rotate(int _rotation) {
@@ -128,11 +133,16 @@ public class Wave {
 		stroke_weight = _stroke_weight;
 	}
 	public void type(String _type) {
-		type = _type;
+		type = _type.toLowerCase();
 	}
 	public void sound() {
 		sound = true;
 		sine.play();
+	}
+	public void blur(int r_, int g_, int b_) {
+	    myParent.noStroke();
+	    myParent.fill(r_,g_,b_, 20);
+	    myParent.rect(0, 0, myParent.width, myParent.height);		
 	}
 }
 	
